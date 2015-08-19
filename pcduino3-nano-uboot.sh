@@ -2,8 +2,9 @@
 
 git clone git://git.denx.de/u-boot.git
 cd u-boot
-make CROSS_COMPILE=arm-linux-gnueabihf- Linksprite_pcDuino3_Nano_defconfig
-make CROSS_COMPILE=arm-linux-gnueabihf-
+make CROSS_COMPILE=arm-frc-linux-gnueabi- Linksprite_pcDuino3_Nano_defconfig
+echo "CONFIG_UBOOT_LOGO_ENABLE=n" >> .config
+make CROSS_COMPILE=arm-frc-linux-gnueabi-
 
 mkdir -p ../u-boot-output
 cp u-boot-sunxi-with-spl.bin spl/sunxi-spl.bin u-boot.img ../u-boot-output
