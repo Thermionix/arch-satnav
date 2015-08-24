@@ -39,7 +39,8 @@
         <polyline color="#BFA990"/>
     </itemgra>
     <itemgra item_types="poly_nature_reserve" order="0-">
-        <polygon color="#ABDE96"/>
+		<polyline color="#adda95" width="5" />
+        <polygon color="#cdebb0"/>
         <text text_size="5"/>
     </itemgra>
 	<itemgra item_types="poly_reservoir" order="0-">
@@ -60,7 +61,7 @@
         <text text_size="5"/>
     </itemgra>
 	<itemgra item_types="poly_commercial" order="0-">
-        <polygon color="#EEC8C8"/>
+        <polygon color="#f1d9d8"/>
         <polyline color="#FFFFC1"/>
         <text text_size="5"/>
     </itemgra>
@@ -74,7 +75,7 @@
         <text text_size="5"/>
     </itemgra>
     <itemgra item_types="poly_construction" order="0-">
-        <polygon color="#9D9C6B"/>
+        <polygon color="#b6b592"/>
         <text text_size="5"/>
     </itemgra>
 	<itemgra item_types="poly_quarry" order="0-">
@@ -162,7 +163,7 @@
         <polygon color="#a0a0a0"/>
     </itemgra>
 	<itemgra item_types="poly_military" order="0-">
-	<polygon color="#F6D1CE"/>
+	<polygon color="#f2d9d5"/>
         <text text_size="5"/>
     </itemgra>
 	<itemgra item_types="poly_danger_area" order="0-">
@@ -171,7 +172,7 @@
 		<text text_size="5"/>
     </itemgra>
 	<itemgra item_types="poly_railway" order="0-">
-	<polygon color="#DED0D5"/>
+	<polygon color="#ebdbe8"/>
     </itemgra>
 	<itemgra item_types="poly_barracks" order="0-">
 	<polygon color="#FE8E8E"/>
@@ -182,7 +183,7 @@
 	<polyline color="#8AD2AE" width="5"/>
     </itemgra>
     <itemgra item_types="poly_industry,poly_place" order="0-">
-        <polygon color="#DED0D5"/>
+        <polygon color="#ebdbe8"/>
     </itemgra>
     <itemgra item_types="poly_service" order="8-18">
         <polygon color="#fefefe"/>
@@ -238,8 +239,8 @@
         <polyline color="#F6EEB7"/>
     </itemgra>
     <itemgra item_types="poly_building" order="0-">
-        <polygon color="#BCA9A9"/>
-	<polyline color="#BCA9A9" width="2"/> 
+        <polygon color="#d9d0c9"/>
+		<polyline color="#d9d0c9" width="2"/> 
     </itemgra>
     <itemgra item_types="rail" order="6-">
         <polyline color="#696969" width="3"/>
