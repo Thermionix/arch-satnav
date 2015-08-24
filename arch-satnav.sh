@@ -7,6 +7,8 @@ if [ $(id -u) = 0 ]; then
 	exit 1
 fi
 
+sudo hostnamectl set-hostname arch-satnav
+
 sudo pacman -Sy --noconfirm haveged
 sudo systemctl enable haveged
 sudo systemctl start haveged
@@ -89,17 +91,42 @@ sudo systemctl enable paccache-clean.timer
 
 
 
-sudo pacman -S --noconfirm enlightenment xterm
-echo "exec enlightenment_start" > ~/.xinitrc
+#sudo pacman -S --noconfirm enlightenment xterm
+#echo "exec enlightenment_start" > ~/.xinitrc
+
+sudo pacman -S --noconfirm xterm xorg-xrdb
+sudo pacman -S --noconfirm matchbox-common matchbox-keyboard
 
 
+cat <<-'EOF' | tee .xinitrc
+xset -dpms     	# disable DPMS (Energy Star) features.
+xset s off      # disable screen saver
+xset s noblank 	# don't blank the video device
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+exec matchbox-session -use_cursor no -use_titlebar no
+EOF
 
-sudo pacman -S --noconfirm gpsd
+mkdir ~/.config/autostart
+touch ~/.config/autostart/matchbox-keyboard.desktop
+[Desktop Entry]
+Name=Matchbox-keyboard
+Exec=matchbox-keyboard
+Type=application
+
+## install unclutter to remove mouse cursor
+
+
+sudo pacman -S --noconfirm gpsd pygtk
 
 #sudo pacman -S gpsdrive
 pacaur -S navit
 #pacaur -S roadnav
 #pacaur -S qmapshack
-#pacaur -S foxtrotgps
+#pacaur -S foxtrotgps --ignorearch
 #pacaur -S modRana
+
+echo 'KERNEL=="gps0", RUN+="/usr/bin/stty -F /dev/gps0 38400"' | sudo tee /etc/udev/rules.d/99-gps.rules
+
+mkdir -p ~/.navit/
+curl http://www.sjjb.co.uk/mapicons/download/SJJB-PNG-Icons-20111021.tar.gz | tar -zx -C ~/.navit/ png/
 

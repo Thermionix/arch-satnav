@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE config
+  SYSTEM "navit.dtd">
+<config xmlns:xi="http://www.w3.org/2001/XInclude">
+	<xi:include href="$NAVIT_SHAREDIR/navit.xml" xpointer="xpointer(/config/plugins)"/>
+	<xi:include href="$NAVIT_SHAREDIR/navit.xml" xpointer="xpointer(/config/debug)"/>
+
+	<navit center="-37.8141N 144.963E" zoom="256" tracking="1" autozoom_active="1" orientation="0" recent_dest="10">
+
+		<graphics type="gtk_drawing_area"/>
+
+		<!-- <gui type="internal" enabled="yes" fullscreen="1"> -->
+
+		<vehicle name="Local GPS" profilename="car" enabled="yes" active="1" source="gpsd://localhost" gpsd_query="w+xj"><!-- follow="3" color="#0000ff"> -->
+			<log enabled="no" type="gpx" attr_types="position_time_iso8601,position_direction,position_speed,profilename,position_radius" data="track_%Y%m%d-%%i.gpx" flush_size="1000" flush_time="30"/>
+		</vehicle>
+
+		<tracking cdf_histsize="0"/>
+
+		<route destination_distance="50"/>
+
+		<mapset enabled="yes">
+		  <map type="binfile" enabled="yes" data="$HOME/.navit/maps/osm_bbox_australia_20150821.bin"/>
+		</mapset>
+
+		<!--<xi:include href="$HOME/.navit/osd.xml"/>-->
+
+		<xi:include href="$HOME/.navit/layout/osm_mapnik.xml"/>
+		<xi:include href="$HOME/.navit/layout/osm_mapnik_dark.xml"/>
+		<xi:include href="$HOME/.navit/layout/osm_mapnik_hdpi.xml"/>
+		<xi:include href="$HOME/.navit/layout/osm_mapnik_mdpi.xml"/>
+
+		<xi:include href="$NAVIT_SHAREDIR/navit.xml" xpointer="xpointer(/config/navit/gui[@type='internal'])"/>
+		<xi:include href="$NAVIT_SHAREDIR/navit.xml" xpointer="xpointer(/config/navit/vehicleprofile[@name='car'])"/>
+		<xi:include href="$NAVIT_SHAREDIR/navit.xml" xpointer="xpointer(/config/navit/vehicleprofile[@name='car_shortest'])"/>
+		<xi:include href="$NAVIT_SHAREDIR/navit.xml" xpointer="xpointer(/config/navit/vehicleprofile[@name='car_avoid_tolls'])"/>
+		<xi:include href="$NAVIT_SHAREDIR/navit.xml" xpointer="xpointer(/config/navit/vehicleprofile[@name='car_pedantic'])"/>
+		<xi:include href="$NAVIT_SHAREDIR/navit.xml" xpointer="xpointer(/config/navit/vehicleprofile[@name='bike'])"/>
+		<xi:include href="$NAVIT_SHAREDIR/navit.xml" xpointer="xpointer(/config/navit/navigation)"/>
+		<xi:include href="$NAVIT_SHAREDIR/navit.xml" xpointer="xpointer(/config/navit/layer[@name='Found items'])"/>
+		<xi:include href="$NAVIT_SHAREDIR/navit.xml" xpointer="xpointer(/config/navit/layout[@name='Car'])"/>
+		<xi:include href="$NAVIT_SHAREDIR/navit.xml" xpointer="xpointer(/config/navit/layout[@name='Car-dark'])"/>
+		<xi:include href="$NAVIT_SHAREDIR/navit.xml" xpointer="xpointer(/config/navit/layout[@name='Car-Android'])"/>
+	</navit>
+</config>
